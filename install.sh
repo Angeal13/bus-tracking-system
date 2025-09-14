@@ -5,7 +5,7 @@ sudo apt-get update
 sudo apt-get upgrade -y
 
 # Install required system packages
-sudo apt-get install -y python3-pip python3-dev libsdl2-mixer-2.0-0 libsdl2-image-2.0-0 libsdl2-2.0-0
+sudo apt-get install -y python3-pip python3-dev libsdl2-mixer-2.0-0 libsdl2-image-2.0-0 libsdl2-2.0-0 mariadb-server mariadb-client -y
 
 # Install MariaDB client libraries
 sudo apt-get install -y libmariadb3 libmariadb-dev
