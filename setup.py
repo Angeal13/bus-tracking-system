@@ -8,15 +8,15 @@ setup(
         "pygame>=2.5.2",
         "pyttsx3>=2.90",
         "gTTS>=2.3.2",
-        "boto3>=1.34.62",
         "mariadb>=1.1.8",
-        "pytz>=2023.3.post1",
+        "boto3>=1.34.62",
         "keyboard>=0.13.5",
+        "pytz>=2024.1",
         "requests>=2.31.0"
     ],
     entry_points={
         'console_scripts': [
-            'bus-system=src.main:main',
+            'bus-tracker=src.main:main',
         ],
     },
 )
