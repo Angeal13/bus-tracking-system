@@ -11,7 +11,7 @@ sudo apt-get install -y python3-pip python3-dev libsdl2-mixer-2.0-0 libsdl2-imag
 sudo apt-get install -y libmariadb3 libmariadb-dev
 
 # Install Python packages
-pip3 install -r requirements.txt
+pip3 install -r requirements.txt --break-system-packages
 
 # Setup audio (if needed)
 sudo usermod -a -G audio pi
