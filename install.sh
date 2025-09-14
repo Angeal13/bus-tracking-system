@@ -4,15 +4,27 @@
 sudo apt-get update
 sudo apt-get upgrade -y
 
-# Install required system packages
-sudo apt-get install -y python3-pip python3-dev libsdl2-mixer-2.0-0 libsdl2-image-2.0-0 libsdl2-2.0-0 mariadb-server mariadb-client
-# Install MariaDB client libraries
-sudo apt-get install -y libmariadb3 libmariadb-dev
+# Install system dependencies
+sudo apt-get install -y \
+    python3-pip \
+    python3-dev \
+    libsdl2-dev \
+    libsdl2-mixer-dev \
+    libsdl2-ttf-dev \
+    libportmidi-dev \
+    libswscale-dev \
+    libavformat-dev \
+    libavcodec-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libmariadb-dev \
+    espeak \
+    espeak-data
 
 # Install Python packages
 pip3 install -r requirements.txt --break-system-packages
 
-# Setup audio (if needed)
-sudo usermod -a -G audio pi
+# Set up audio (may need to configure based on your audio setup)
+sudo amixer cset numid=3 1  # Force audio output to 3.5mm jack if needed
 
-echo "Installation complete. Please reboot if this is the first installation."
+echo "Installation complete. Please configure your AWS credentials and database settings."
