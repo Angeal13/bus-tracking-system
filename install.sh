@@ -44,7 +44,7 @@ sudo apt-get install -y \
 
 # Install Python packages
 echo "Installing Python packages..."
-pip3 install -r requirements.txt
+pip3 install -r requirements.txt --break-system-packages
 
 # Configure audio
 echo "Configuring audio output..."
