@@ -40,11 +40,12 @@ sudo apt-get install -y \
     espeak-data \
     python3-gpiozero \
     alsa-utils \
-    python3-pynput
+    python3-pynput \
+    python3-boto3
 
 # Install Python packages
 echo "Installing Python packages..."
-pip3 install -r requirements.txt --break-system-packages
+pip3 install -r requirements.txt
 
 # Configure audio
 echo "Configuring audio output..."
@@ -106,6 +107,9 @@ EOF
 
 sudo chmod +x /usr/local/bin/${SERVICE_NAME}-ctl
 
+# Create data directory for offline storage
+mkdir -p offline_data
+
 # Test audio
 echo "Testing audio configuration..."
 speaker-test -t wav -c 2 -l 1 > /dev/null 2>&1
@@ -116,6 +120,7 @@ echo "           Installation Complete!"
 echo "=================================================="
 echo "Audio: Configured for 3.5mm jack"
 echo "Service: Installed and enabled"
+echo "Database: Optimized for DynamoDB + Aurora"
 echo ""
 echo "Management commands:"
 echo "  ${SERVICE_NAME}-ctl start    - Start service"
