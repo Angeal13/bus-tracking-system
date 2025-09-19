@@ -17,6 +17,7 @@ from data_models import BusRoute, Bus
 from audio_system import AudioSystem
 from logic import StopTracker, RouteCache
 from controller import StationController
+from audio_utils import AudioConfig
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -29,7 +30,22 @@ class BusTrackingSystem:
         self.route_cache = RouteCache()
         self.active_bus = None
         self.bus_id = self._get_bus_id()
+        self._configure_audio()
 
+    def _configure_audio(self):
+        """Configure audio output settings"""
+        logger.info("Configuring audio output...")
+        if AudioConfig.ensure_audio_output_jack():
+            logger.info("Audio configured successfully for 3.5mm jack")
+        else:
+            logger.warning("Audio configuration may need manual adjustment")
+        
+        # Verify audio settings
+        if AudioConfig.test_audio_output():
+            logger.info("Audio output verified")
+        else:
+            logger.warning("Audio output test failed - check connections")
+            
     def _get_bus_id(self):
         """Get a unique identifier for this bus/Raspberry Pi"""
         try:
