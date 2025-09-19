@@ -24,7 +24,7 @@ CURRENT_REGION = next((region for region, countries in AFRICAN_HUBS.items()
 
 # DynamoDB Configuration - Global Table with On-Demand Pricing
 DYNAMODB_CONFIG = {
-    'table_name': 'africa_bus_tracker_global',
+    'table_name': 'africa-bus-tracking',
     'region': CURRENT_REGION,
     'billing_mode': 'PAY_PER_REQUEST',
     'ttl_attribute': 'expiry_time',
@@ -69,5 +69,6 @@ AWS_CONFIG = {
     'max_retries': 3,
     'timeout': 15,
     'dynamo_db_region': CURRENT_REGION,
-    'aurora_region': 'us-east-1'  # Cheapest region for Aurora
+    'aurora_region': 'us-west-2'  # Cheapest region for Aurora
 }
+
